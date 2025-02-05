@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone-based Iris Recognition through High-Quality Visible Spectrum Iris Capture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    
+    <div class="container">
+        <h1>Smartphone-based Iris Recognition through High-Quality Visible Spectrum Iris Capture</h1>
+        <p><strong>Authors:</strong> Naveenkumar G Venkataswamy, Yu Liu, Surendra Singh, Soumyabrata Dey, Stephanie Schuckers, Masudul H Imtiaz</p>
+        <p><strong>Conference:</strong> arXiv preprint arXiv:2412.13063</p>
+        <p><strong>DOI:</strong> <a href="https://doi.org/10.48550/arXiv.2412.13063" target="_blank">https://doi.org/10.48550/arXiv.2412.13063</a></p>
+        <h2>Objective</h2>
+        <p>This study explores the feasibility of <span class="highlight">iris recognition using smartphone cameras</span> in the <span class="highlight">visible spectrum (VIS)</span>. Unlike traditional near-infrared (NIR) imaging, this approach leverages high-resolution smartphone cameras to capture high-quality iris images. The goal is to enhance smartphone-based biometric authentication while ensuring compliance with <span class="highlight">ISO/IEC 29794-6 biometric standards</span>.</p>
+    
+        <h2>Methodology</h2>
+        <ul>
+            <li><strong>Android Application:</strong> A dedicated app was developed for capturing high-quality VIS iris images using automated <span class="highlight">focus and zoom adjustments</span>.</li>
+            <li><strong>YOLO v3-Tiny for Eye Detection:</strong> Integrated for real-time and accurate eye and iris detection.</li>
+            <li><strong>G-ATTU-Net for Iris Segmentation:</strong> A lightweight deep-learning model optimized for mobile devices.</li>
+            <li><strong>Dataset:</strong> The <span class="highlight">Clarkson University Visible Iris (CUVIRIS) dataset</span> was created, consisting of **VIS and NIR iris images** from 47 subjects.</li>
+            <li><strong>Evaluation:</strong> Performance was assessed using <span class="highlight">True Acceptance Rate (TAR)</span> and cross-spectral matching between VIS and NIR images.</li>
+        </ul>
+    
+        <h2>Results</h2>
+        <ul>
+            <li><strong>VIS images achieved a TAR of 96.57%</strong>, demonstrating strong iris recognition performance in the visible spectrum.</li>
+            <li><strong>NIR images achieved a TAR of 98.95%</strong>, maintaining superior accuracy.</li>
+            <li><strong>Cross-spectral matching</strong> (NIR to VIS) resulted in a TAR of <strong>96.17%</strong>, showing promising interoperability.</li>
+            <li>System performance remained consistent across <span class="highlight">different iris colors</span> and <span class="highlight">capture distances</span>.</li>
+        </ul>
+    
+        <h2>Conclusion</h2>
+        <p>This study presents a <span class="highlight">robust and efficient smartphone-based iris recognition system</span> that adheres to biometric quality standards. The proposed approach, integrating advanced <span class="highlight">deep learning models</span> with real-time processing, demonstrates the potential of smartphone cameras for high-accuracy iris recognition. The publicly available <span class="highlight">CUVIRIS dataset</span> will further contribute to advancements in the field. Future work will focus on improving segmentation models and testing under more challenging environments.</p>
+
+        
+    </div>
+</body>
+</html>
