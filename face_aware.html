@@ -1,1 +1,95 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Open-Source Face-Aware Capture System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    
+    <div class="container">
+        <h1>An Open-Source Face-Aware Capture System</h1>
+        <p><strong>Authors:</strong> Md Abdul Baset Sarker, SM Safayet Hossain, Naveenkumar G Venkataswamy, Stephanie Schuckers, Masudul H Imtiaz</p>
+        <p><strong>Conference:</strong> Electronics 2024</p>
+        <p><strong>DOI:</strong> <a href=" https://doi.org/10.3390/electronics13071178" target="_blank"> https://doi.org/10.3390/electronics13071178</a></p>
+    
+        <h2>Objective</h2>
+        <p>The study explores the feasibility of classifying <span class="highlight">inner speech</span> (silent, non-articulated thoughts) using EEG signals and machine learning models. The goal is to develop <span class="highlight">brain-computer interfaces (BCIs)</span> that can assist individuals with severe disabilities (e.g., locked-in syndrome) by enabling control through thought-based communication.</p>
+    
+        <h2>Methodology</h2>
+        <ul>
+            <li><strong>Dataset:</strong> EEG signals from 8 subjects thinking about four directional words: <em>“up,” “down,” “left,” and “right.”</em></li>
+            <li><strong>Data Collection:</strong> EEG, EOG, and EMG signals recorded using a BioSemi ActiveTwo system with 128 EEG channels.</li>
+            <li><strong>Preprocessing:</strong> Filtering, re-referencing, epoch extraction, and feature selection using ANOVA-based importance ranking.</li>
+            <li><strong>Features Extracted:</strong> Statistical metrics such as mean, standard deviation, kurtosis, Hjorth parameters, and Shannon entropy.</li>
+            <li><strong>Models Used:</strong>
+                <ul>
+                    <li>Random Forest (RF)</li>
+                    <li>Support Vector Machine (SVM)</li>
+                    <li>K-Nearest Neighbors (KNN)</li>
+                </ul>
+            </li>
+            <li><strong>Validation:</strong> Hold-out validation with 20% test data and hyperparameter tuning using grid search.</li>
+        </ul>
+    
+        <h2>Results</h2>
+        <ul>
+            <li>The <span class="highlight">SVM classifier</span> achieved the highest accuracy at <strong>35.3%</strong>.</li>
+            <li>KNN and RF performed slightly worse, with <strong>31.4%</strong> and <strong>29.7%</strong> accuracy, respectively.</li>
+            <li>The best SVM hyperparameter setup used a <strong>quadratic kernel</strong>, improving classification performance.</li>
+            <li><strong>Challenges:</strong> High noise in EEG data and inter-subject variability made classification difficult, leading to only slightly better-than-random performance.</li>
+        </ul>
+    
+        <h2>Key Findings</h2>
+        <ul>
+            <li>While classification accuracy is <strong>low</strong>, results are <strong>consistent with previous research</strong>, demonstrating the feasibility of using EEG for inner speech recognition.</li>
+            <li><strong>Deep learning</strong> has shown slightly better performance but still struggles with accuracy due to noise and limited datasets.</li>
+            <li>Future improvements could involve <strong>better feature selection</strong>, <strong>principal component analysis (PCA)</strong>, or <strong>enhanced EEG signal processing</strong>.</li>
+        </ul>
+    
+        <h2>Conclusion</h2>
+        <ul>
+            <li>The study provides <strong>promising evidence</strong> that machine learning can classify inner speech from EEG signals.</li>
+            <li><strong>Further research</strong> is needed to improve classification accuracy and make inner speech-based BCI systems more reliable.</li>
+            <li>Machine learning-based inner speech decoding could pave the way for <strong>thought-controlled assistive technologies</strong>, benefiting individuals with severe neurological conditions.</li>
+        </ul>
+    </div>
+</body>
+</html>
