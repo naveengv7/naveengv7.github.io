@@ -51,45 +51,33 @@
         <p><strong>DOI:</strong> <a href=" https://doi.org/10.3390/electronics13071178" target="_blank"> https://doi.org/10.3390/electronics13071178</a></p>
     
         <h2>Objective</h2>
-        <p>The study explores the feasibility of classifying <span class="highlight">inner speech</span> (silent, non-articulated thoughts) using EEG signals and machine learning models. The goal is to develop <span class="highlight">brain-computer interfaces (BCIs)</span> that can assist individuals with severe disabilities (e.g., locked-in syndrome) by enabling control through thought-based communication.</p>
+        <p>This study presents an <span class="highlight">open-source face-aware capture system</span> designed to improve the quality of facial images used in biometric authentication, especially for <span class="highlight">passport photo acquisition and verification</span>. The system leverages computer vision algorithms and real-time face quality assessment to ensure high-quality image capture.</p>
+    
+        <h2>System Overview</h2>
+        <ul>
+            <li><strong>Hardware:</strong> Includes an <span class="highlight">NVIDIA Jetson processor</span>, a <span class="highlight">16 MP autofocus RGB camera</span>, a custom enclosure, and a touchscreen LCD.</li>
+            <li><strong>Software:</strong> Uses <span class="highlight">open-source algorithms</span> to evaluate face quality based on ISO standards.</li>
+            <li><strong>Security:</strong> Implements <span class="highlight">AES encryption</span> to ensure secure image storage and prevent data tampering.</li>
+        </ul>
     
         <h2>Methodology</h2>
         <ul>
-            <li><strong>Dataset:</strong> EEG signals from 8 subjects thinking about four directional words: <em>“up,” “down,” “left,” and “right.”</em></li>
-            <li><strong>Data Collection:</strong> EEG, EOG, and EMG signals recorded using a BioSemi ActiveTwo system with 128 EEG channels.</li>
-            <li><strong>Preprocessing:</strong> Filtering, re-referencing, epoch extraction, and feature selection using ANOVA-based importance ranking.</li>
-            <li><strong>Features Extracted:</strong> Statistical metrics such as mean, standard deviation, kurtosis, Hjorth parameters, and Shannon entropy.</li>
-            <li><strong>Models Used:</strong>
-                <ul>
-                    <li>Random Forest (RF)</li>
-                    <li>Support Vector Machine (SVM)</li>
-                    <li>K-Nearest Neighbors (KNN)</li>
-                </ul>
-            </li>
-            <li><strong>Validation:</strong> Hold-out validation with 20% test data and hyperparameter tuning using grid search.</li>
+            <li>The system detects a user's face and evaluates its quality based on <strong>pose, lighting, and clarity</strong>.</li>
+            <li>Facial images are assessed for compliance with <strong>ISO standards</strong> using <span class="highlight">geometric and photographic tests</span>.</li>
+            <li>Users can <strong>select the best-quality image</strong> from a set of captured photos.</li>
+            <li>Once an image is selected, it is <strong>encrypted using AES</strong> for secure storage.</li>
         </ul>
     
         <h2>Results</h2>
         <ul>
-            <li>The <span class="highlight">SVM classifier</span> achieved the highest accuracy at <strong>35.3%</strong>.</li>
-            <li>KNN and RF performed slightly worse, with <strong>31.4%</strong> and <strong>29.7%</strong> accuracy, respectively.</li>
-            <li>The best SVM hyperparameter setup used a <strong>quadratic kernel</strong>, improving classification performance.</li>
-            <li><strong>Challenges:</strong> High noise in EEG data and inter-subject variability made classification difficult, leading to only slightly better-than-random performance.</li>
-        </ul>
-    
-        <h2>Key Findings</h2>
-        <ul>
-            <li>While classification accuracy is <strong>low</strong>, results are <strong>consistent with previous research</strong>, demonstrating the feasibility of using EEG for inner speech recognition.</li>
-            <li><strong>Deep learning</strong> has shown slightly better performance but still struggles with accuracy due to noise and limited datasets.</li>
-            <li>Future improvements could involve <strong>better feature selection</strong>, <strong>principal component analysis (PCA)</strong>, or <strong>enhanced EEG signal processing</strong>.</li>
+            <li>The system achieved an accuracy of <span class="highlight">98.98%</span> in capturing high-quality facial images.</li>
+            <li>Testing on the <span class="highlight">U.S. passport verification tool</span> confirmed its effectiveness.</li>
+            <li>Real-time processing allows for **fast and efficient** passport photo capture.</li>
         </ul>
     
         <h2>Conclusion</h2>
-        <ul>
-            <li>The study provides <strong>promising evidence</strong> that machine learning can classify inner speech from EEG signals.</li>
-            <li><strong>Further research</strong> is needed to improve classification accuracy and make inner speech-based BCI systems more reliable.</li>
-            <li>Machine learning-based inner speech decoding could pave the way for <strong>thought-controlled assistive technologies</strong>, benefiting individuals with severe neurological conditions.</li>
-        </ul>
+        <p>The proposed <span class="highlight">face-aware capture system</span> enhances biometric authentication by ensuring the capture of **high-quality, ISO-compliant images**. Its <strong>open-source nature</strong> makes it highly adaptable for various applications, including **passport verification, security, and identity authentication**. Future improvements will focus on **deep learning-based enhancements, automated camera positioning, and expanded use cases**.</p>
+        
     </div>
 </body>
 </html>
