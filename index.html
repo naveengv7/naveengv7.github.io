@@ -19,7 +19,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
+            text-align: center;
         }
         .nav {
             text-align: center;
@@ -34,6 +34,18 @@
         .nav a:hover {
             text-decoration: underline;
         }
+        .profile-pic img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .tagline {
+            font-size: 20px;
+            font-style: italic;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -45,8 +57,12 @@
     </div>
     
     <div class="container">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hi, I'm Naveenkumar Venkataswamy, a Ph.D. candidate specializing in AI, Machine Learning, and Biometric Systems. Explore my projects and publications to learn more about my work.</p>
+        <div class="profile-pic">
+            <img src="IMG_2633.JPG" alt="Naveenkumar Venkataswamy">
+        </div>
+        <h1>Naveenkumar Venkataswamy</h1>
+        <p class="tagline">"Bridging AI and Biometrics for a Secure Future"</p>
+        <p>Hi, I'm a Ph.D. candidate specializing in AI, Machine Learning, and Biometric Systems. Explore my projects and publications to learn more about my work.</p>
     </div>
 </body>
 </html>
