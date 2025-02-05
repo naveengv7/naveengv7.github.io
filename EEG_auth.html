@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Machine Learning Algorithms Classify Inner Speech from EEG Brain Signals?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    
+    <div class="container">
+        <h1>Support Vector Machine for Person Classification Using the EEG Signals</h1>
+        <p><strong>Authors:</strong> Naveenkumar G Venkataswamy, Masudul H Imtiaz</p>
+        <p><strong>Conference:</strong> 2023 International Conference on Electrical, Computer and Energy Technologies (ICECET), 2023</p>
+        <p><strong>DOI:</strong> <a href="https://doi.org/10.1109/ICECET58911.2023.10389511" target="_blank">10.1109/ICECET58911.2023.10389511</a></p>
+    
+        <h2>Objective</h2>
+        <p>This study explores the use of <span class="highlight">Electroencephalogram (EEG) signals</span> for biometric authentication by identifying individuals based on their unique brain activity patterns. Traditional authentication methods like passwords and fingerprint recognition are vulnerable to spoofing, while EEG-based biometrics offer a <span class="highlight">more secure and forgery-resistant</span> alternative.</p>
 
+        <h2>Methodology</h2>
+        <ul>
+            <li><strong>Dataset:</strong> EEG data from <strong>12 subjects</strong> recorded using an <strong>OpenBCI helmet</strong> with <strong>8 channels</strong>.</li>
+            <li><strong>Task:</strong> Subjects performed an <em>oddball auditory task</em> to generate distinct EEG responses.</li>
+            <li><strong>Feature Extraction:</strong> Statistical and spectral features such as:
+                <ul>
+                    <li>Root Mean Square (RMS)</li>
+                    <li>Shannon entropy</li>
+                    <li>Power Spectral Density (PSD)</li>
+                    <li>Hjorth parameters</li>
+                </ul>
+            </li>
+            <li><strong>Dimensionality Reduction:</strong> Applied <strong>Principal Component Analysis (PCA)</strong> to retain <strong>27 key features</strong>.</li>
+            <li><strong>Classifier Used:</strong> <strong>Support Vector Machine (SVM)</strong> with different kernel functions (Linear, Polynomial, and Radial Basis Function (RBF)).</li>
+        </ul>
+    
+        <h2>Results</h2>
+        <ul>
+            <li>The <span class="highlight">RBF SVM</span> achieved the highest classification accuracy of <strong>92.9%</strong>, outperforming other kernel functions.</li>
+            <li><strong>Linear SVM:</strong> 81.1% accuracy.</li>
+            <li><strong>Polynomial SVM:</strong> 84.7% accuracy.</li>
+            <li>The study confirms that EEG-based authentication is feasible and could serve as a robust security mechanism.</li>
+        </ul>
+    
+        <h2>Conclusion</h2>
+        <ul>
+            <li>This research highlights the <strong>potential of EEG signals for user authentication</strong>, providing a <span class="highlight">highly secure and spoof-resistant biometric alternative</span>.</li>
+            <li>While the study used an existing dataset, <strong>future work with purpose-collected data</strong> could further enhance classification accuracy and real-world applicability.</li>
+        </ul>
+    </div>
+</body>
+</html>
