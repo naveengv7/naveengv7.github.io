@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication and Vital Signs Extraction from Low-Frame-Rate and Monochrome No-contact Fingerprint Captures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    
+    <div class="container">
+        <h1>User Authentication and Vital Signs Extraction from Low-Frame-Rate and Monochrome No-contact Fingerprint Captures</h1>
+        <p><strong>Authors:</strong> Olaoluwayimika Olugbenle, Logan Drake, Naveenkumar G Venkataswamy, Arfina Rahman, Yemi Afolayanka, Masudul Imtiaz, Mahesh K Banavar</p>
+        <p><strong>Conference:</strong> arXiv preprint arXiv:2412.07082</p>
+        <p><strong>DOI:</strong> <a href="https://doi.org/10.48550/arXiv.2412.07082" target="_blank">10.48550/arXiv.2412.07082</a></p>
+        <h2>Objective</h2>
+    <p>This study explores the use of <span class="highlight">low-frame-rate, monochrome (blue light) fingerprint captures</span> to extract **vital signs** and authenticate users. By leveraging <span class="highlight">photoplethysmography (PPG)</span>, the system detects heart rate and other biometric signals, enhancing **liveness detection** for security applications.</p>
+
+    <h2>Methodology</h2>
+    <ul>
+        <li><strong>Fingerprint Sensor:</strong> A **no-contact fingerprint scanner** captures fingertip images at <strong>3000 PPI resolution</strong> and **14 frames per second**.</li>
+        <li><strong>PPG Signal Extraction:</strong> Light intensity variations in the fingertip images are analyzed to measure <span class="highlight">heart rate and oxygen saturation</span>.</li>
+        <li><strong>Vital Signs Calculation:</strong> The system applies a **Chebyshev low-pass filter** and moving average filters to enhance accuracy.</li>
+        <li><strong>User Authentication:</strong> Two methods were tested:
+            <ul>
+                <li><span class="highlight">Human ID Approach:</span> Statistical pattern analysis of PPG signals.</li>
+                <li><span class="highlight">Deep Learning-Based Approach:</span> A CNN-LSTM model trained on time-series PPG data.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Results</h2>
+    <ul>
+        <li><strong>Vital Signs Estimation:</strong> The **mean error rate in heart rate detection was reduced from 22.9% to 11.6%** with improved filtering.</li>
+        <li><strong>User Authentication (Human ID Method):</strong> Successfully identified users in most cases but had some false negatives.</li>
+        <li><strong>Deep Learning Approach:</strong> Model accuracy fluctuated due to class imbalance, highlighting the need for further optimization.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>This research demonstrates that **low-frame-rate, monochrome fingerprint sensors can be used for both liveness detection and biometric authentication**. The findings suggest that PPG signals obtained from fingerprint images can add a new layer of security against spoofing. Future work will focus on **expanding datasets, refining deep learning models, and improving accuracy** for real-world applications.</p>
+
+        
+    </div>
+</body>
+</html>
