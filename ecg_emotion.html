@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicting Emotional States from Wearable ECG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    
+    <div class="container">
+        <h1>Predicting Emotional States from Wearable ECG</h1>
+        <p><strong>Authors:</strong> Timothy C Sweeney-Fanelli, Ernesto Sola-Thomas, Naveenkumar G Venkataswamy, Justin C Au-Yeung, Masudul H Imtiaz</p>
+        <p><strong>Conference:</strong> 2024 IEEE 15th Annual Ubiquitous Computing, Electronics & Mobile Communication Conference (UEMCON)</p>
+        <p><strong>DOI:</strong> <a href="https://doi.org/10.1109/UEMCON62879.2024.10754745" target="_blank">10.1109/UEMCON62879.2024.10754745</a></p>
+    
+        <h2>Objective</h2>
+    <p>This study explores a <span class="highlight">machine learning-based approach</span> to predicting **emotional responses** using **ECG signals**. By analyzing ECG data from the <span class="highlight">DREAMER dataset</span>, the goal is to classify emotions based on <strong>valence, arousal, and dominance</strong> metrics, contributing to **mental health monitoring** and **empathetic technology**.</p>
+
+    <h2>Methodology</h2>
+    <ul>
+        <li><strong>Dataset:</strong> ECG signals from <span class="highlight">23 individuals</span> exposed to various multimedia stimuli.</li>
+        <li><strong>Preprocessing:</strong> Noise reduction using **heartpy**, baseline drift removal, and **bandpass filtering**.</li>
+        <li><strong>Feature Extraction:</strong> A set of **13 time-domain features** (e.g., bpm, sdnn, rmssd, hrmad) extracted from ECG signals.</li>
+        <li><strong>Machine Learning Models Used:</strong>
+            <ul>
+                <li><span class="highlight">Random Forest (RF)</span></li>
+                <li><span class="highlight">Support Vector Machine (SVM)</span></li>
+                <li><span class="highlight">Logistic Regression</span></li>
+            </ul>
+        </li>
+        <li><strong>Model Optimization:</strong> Applied **Principal Component Analysis (PCA)** and hyperparameter tuning.</li>
+    </ul>
+
+    <h2>Results</h2>
+    <ul>
+        <li><strong>Random Forest:</strong> Achieved the highest accuracy of **82%** for emotion classification.</li>
+        <li><strong>SVM:</strong> Performed well with **40% accuracy**, but struggled with generalization.</li>
+        <li><strong>Logistic Regression:</strong> Showed a peak accuracy of **38%**.</li>
+        <li>PCA improved classification performance by simplifying features while retaining **95% variance**.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>This research confirms that **ECG-based emotion classification is feasible** using machine learning. The **Random Forest model performed best**, suggesting potential for **real-world emotion detection applications**. Future work will involve refining deep learning techniques, expanding datasets, and improving feature selection for **better accuracy in predicting emotional responses**.</p>
+
+    </div>
+</body>
+</html>
