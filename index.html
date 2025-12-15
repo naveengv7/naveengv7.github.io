@@ -302,6 +302,76 @@
             transform: translateY(-4px);
         }
 
+        /* Hero Grid Layout with Photo */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-image {
+            animation: fadeInUp 0.6s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .image-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .image-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-links {
+                justify-content: center;
+            }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -480,6 +550,85 @@
 
         .project-link:hover {
             gap: 12px;
+        }
+
+        /* Project Card with Image */
+        .project-card-featured {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .project-card-featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card-featured:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+        }
+
+        .project-card-featured:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card-featured img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-card-featured .project-content {
+            padding: 24px;
+        }
+
+        .project-card-featured h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .project-card-featured .project-meta {
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+
+        .project-card-featured p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .project-metrics {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            background: var(--bg-secondary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .metric-value {
+            color: var(--accent-light);
+            font-weight: 600;
         }
 
         /* Skills Section */
@@ -816,14 +965,15 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Open to opportunities
-                </div>
-                <h1>
-                    Hi, I'm <span class="gradient">Naveen</span>
-                </h1>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        Open to opportunities
+                    </div>
+                    <h1>
+                        Hi, I'm <span class="gradient">Naveen</span>
+                    </h1>
                 <p class="hero-title">Postdoctoral Researcher • AI & Computer Vision</p>
                 <p class="hero-description">
                     I build AI systems that are not just accurate, but also efficient, interpretable, and fair. 
@@ -868,6 +1018,13 @@
                         </svg>
                     </a>
                 </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="headshot.JPG" alt="Dr. Naveenkumar Venkataswamy" />
+                        <div class="image-border"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -900,12 +1057,12 @@
                 </div>
                 <div class="about-stats">
                     <div class="stat-card">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Publications</div>
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Citations</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">$200K+</div>
-                        <div class="stat-label">Research Funding</div>
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Publications</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">350+</div>
@@ -995,6 +1152,61 @@
                     <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="project-link">
                         View Research →
                     </a>
+                </div>
+            </div>
+
+            <!-- Featured Projects with Images -->
+            <h3 style="text-align: center; margin: 60px 0 32px; color: var(--text-secondary); font-size: 1.1rem;">Research Publications</h3>
+            <div class="projects-grid">
+                <div class="project-card-featured">
+                    <img src="inner_speech_protocol.png" alt="Inner Speech BCI Experiment Protocol" />
+                    <div class="project-content">
+                        <h3>Inner Speech BCI Classification</h3>
+                        <p class="project-meta">IEEE World AI IoT Congress (AIIoT), 2023</p>
+                        <p>
+                            Machine learning framework for decoding inner speech from 128-channel EEG signals 
+                            to enable thought-controlled assistive devices for patients with locked-in syndrome.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">35.3%</span> Accuracy</span>
+                            <span class="metric"><span class="metric-value">4-class</span> Classification</span>
+                            <span class="metric"><span class="metric-value">5600</span> Trials</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>EEGLAB</span>
+                            <span>SVM</span>
+                            <span>ANOVA</span>
+                        </div>
+                        <a href="https://ieeexplore.ieee.org/document/10175115" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card-featured">
+                    <img src="seizure_detection_pipeline.png" alt="Epileptic Seizure Detection ML Pipeline" />
+                    <div class="project-content">
+                        <h3>Epileptic Seizure Detection</h3>
+                        <p class="project-meta">IEEE ICECET, 2023</p>
+                        <p>
+                            Lightweight ML model for real-time seizure event classification from EEG signals, 
+                            designed for mobile/embedded deployment where deep learning is too computationally expensive.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">91.17%</span> Accuracy</span>
+                            <span class="metric"><span class="metric-value">91.97%</span> Precision</span>
+                            <span class="metric"><span class="metric-value">969hrs</span> EEG Data</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>Decision Tree</span>
+                            <span>SVM</span>
+                            <span>10-fold CV</span>
+                        </div>
+                        <a href="https://ieeexplore.ieee.org/document/10284324" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
