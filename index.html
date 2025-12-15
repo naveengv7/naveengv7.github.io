@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Naveenkumar Venkataswamy | AI Researcher & Computer Vision Engineer</title>
     <meta name="description" content="Postdoctoral Researcher specializing in Trustworthy AI, Computer Vision, and Biometric Systems. Open to Research Scientist and ML Engineering opportunities.">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dr. Naveenkumar Venkataswamy | AI Researcher & Computer Vision Engineer">
+    <meta property="og:description" content="Postdoctoral Researcher specializing in Trustworthy AI, Computer Vision, and Biometric Systems. Open to Research Scientist and ML Engineering opportunities.">
+    <meta property="og:image" content="https://naveengv7.github.io/headshot.JPG">
+    <meta property="og:url" content="https://naveengv7.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dr. Naveenkumar Venkataswamy | AI Researcher">
+    <meta name="twitter:description" content="Postdoctoral Researcher specializing in Trustworthy AI, Computer Vision, and Biometric Systems.">
+    <meta name="twitter:image" content="https://naveengv7.github.io/headshot.JPG">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='68' font-family='system-ui,sans-serif' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>NV</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -881,6 +894,92 @@
             font-size: 0.95rem;
         }
 
+        /* Contact Form */
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px 28px;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .form-divider {
+            display: flex;
+            align-items: center;
+            margin: 32px 0;
+            color: var(--text-secondary);
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .form-divider span {
+            padding: 0 16px;
+            font-size: 0.9rem;
+        }
+
         /* Footer */
         footer {
             padding: 40px 0;
@@ -952,9 +1051,9 @@
             <a href="#" class="logo">NV</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
+                <li><a href="#publications">Publications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#publications">Publications</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -976,7 +1075,7 @@
                     </h1>
                 <p class="hero-title">Postdoctoral Researcher • AI & Computer Vision</p>
                 <p class="hero-description">
-                    I build AI systems that are not just accurate, but also efficient, interpretable, and fair. 
+                    I build AI systems that are not just accurate, but also efficient, interpretable, and fair.
                     Bridging the gap between laboratory AI and real-world deployment at Clarkson University.
                 </p>
                 <div class="hero-buttons">
@@ -987,12 +1086,14 @@
                         </svg>
                         Get in Touch
                     </a>
-                    <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="btn btn-secondary">
+                    <a href="Naveen_Research_CV.pdf" target="_blank" class="btn btn-secondary">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 14l9-5-9-5-9 5 9 5z"/>
-                            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="12" y1="18" x2="12" y2="12"/>
+                            <polyline points="9 15 12 18 15 15"/>
                         </svg>
-                        View Publications
+                        Download CV
                     </a>
                 </div>
                 <div class="hero-links">
@@ -1011,7 +1112,7 @@
                             <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
                         </svg>
                     </a>
-                    <a href="/cdn-cgi/l/email-protection#dcb2bdaab9b9b2bbaaebe89cbbb1bdb5b0f2bfb3b1" title="Email">
+                    <a href="mailto:naveengv74@gmail.com" title="Email">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
@@ -1036,43 +1137,243 @@
                 <span class="section-label">About Me</span>
                 <h2 class="section-title">Turning Research into Reality</h2>
             </div>
-            <div class="about-grid">
-                <div class="about-content">
-                    <p>
-                        I'm a <strong>Postdoctoral Researcher at Clarkson University</strong> specializing in 
-                        trustworthy and deployable AI systems. My work focuses on biometric recognition, 
-                        explainable machine learning, and mobile/embedded computer vision.
-                    </p>
-                    <p>
-                        My research addresses the critical gap between laboratory AI and real-world deployment 
-                        by developing systems that are accurate, efficient, interpretable, and fair across 
-                        demographic groups. Current focus areas include presentation attack detection for 
-                        mobile authentication, LLM-driven model interpretability, and longitudinal biometric 
-                        stability in pediatric populations.
-                    </p>
-                    <p>
-                        My work has been adopted by leading organizations including <strong>Tools for Humanity</strong>, 
-                        <strong>Neurotechnology</strong>, <strong>IDEMIA</strong>, and <strong>Mastercard Community Pass</strong>.
-                    </p>
+            <div class="about-content" style="max-width: 800px; margin: 0 auto;">
+                <p>
+                    I study the AI systems that make high-stakes decisions about people—who gets access
+                    to healthcare, financial services, and secure spaces. My research builds computer vision
+                    that is <strong>accurate</strong>, <strong>interpretable</strong>, and <strong>fair</strong> across all communities.
+                </p>
+                <p>
+                    I bring a rare combination: <strong>5 years building production ML systems</strong> processing
+                    500K+ daily transactions, and rigorous academic research including one of the longest
+                    biometric longitudinal studies in the field (9 years, 350+ participants). This dual
+                    perspective drives my focus on AI that actually works in the real world.
+                </p>
+                <p>
+                    My work has been adopted by <strong>Tools for Humanity</strong>, <strong>Neurotechnology</strong>,
+                    <strong>IDEMIA</strong>, and <strong>Mastercard Community Pass</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Publications Section -->
+    <section class="projects" id="publications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Research Publications</span>
+                <h2 class="section-title">Published Work</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card-featured">
+                    <img src="inner_speech_protocol.png" alt="Inner Speech BCI Experiment Protocol" />
+                    <div class="project-content">
+                        <h3>Inner Speech BCI Classification</h3>
+                        <p class="project-meta">IEEE World AI IoT Congress (AIIoT), 2023</p>
+                        <p>
+                            Machine learning framework for decoding inner speech from 128-channel EEG signals
+                            to enable thought-controlled assistive devices for patients with locked-in syndrome.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">35.3%</span> Accuracy</span>
+                            <span class="metric"><span class="metric-value">4-class</span> Classification</span>
+                            <span class="metric"><span class="metric-value">5600</span> Trials</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>EEGLAB</span>
+                            <span>SVM</span>
+                            <span>ANOVA</span>
+                        </div>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10174580" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
+                    </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">Citations</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Publications</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">350+</div>
-                        <div class="stat-label">Study Participants</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">9×</div>
-                        <div class="stat-label">Model Speedup</div>
+                <div class="project-card-featured">
+                    <img src="seizure_detection_pipeline.png" alt="Epileptic Seizure Detection ML Pipeline" />
+                    <div class="project-content">
+                        <h3>Epileptic Seizure Detection</h3>
+                        <p class="project-meta">IEEE ICECET, 2023</p>
+                        <p>
+                            Lightweight ML model for real-time seizure event classification from EEG signals,
+                            designed for mobile/embedded deployment where deep learning is too computationally expensive.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">91.17%</span> Accuracy</span>
+                            <span class="metric"><span class="metric-value">91.97%</span> Precision</span>
+                            <span class="metric"><span class="metric-value">969hrs</span> EEG Data</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>Decision Tree</span>
+                            <span>SVM</span>
+                            <span>10-fold CV</span>
+                        </div>
+                        <a href="https://ieeexplore.ieee.org/document/10284324" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
                     </div>
                 </div>
+                <div class="project-card-featured">
+                    <img src="eeg_biometric_setup.png" alt="EEG Biometric Authentication Setup" />
+                    <div class="project-content">
+                        <h3>EEG-Based Biometric Authentication</h3>
+                        <p class="project-meta">IEEE ICECET, 2023</p>
+                        <p>
+                            Spoof-resistant person identification using brain signals. Unlike fingerprints or iris,
+                            EEG patterns are impossible to replicate and provide inherent liveness detection.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">92.9%</span> Accuracy</span>
+                            <span class="metric"><span class="metric-value">12-class</span> Classification</span>
+                            <span class="metric"><span class="metric-value">27</span> PCA Components</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>EEGLAB</span>
+                            <span>SVM</span>
+                            <span>PCA</span>
+                            <span>OpenBCI</span>
+                        </div>
+                        <a href="https://arxiv.org/abs/2411.17446" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card-featured">
+                    <img src="fingerprint_heartrate_setup.png" alt="Contactless Fingerprint and Heart Rate Data Collection Setup" />
+                    <div class="project-content">
+                        <h3>Contactless Fingerprint & Heart Rate Dataset</h3>
+                        <p class="project-meta">IEEE Data Descriptions, 2024</p>
+                        <p>
+                            Public multi-modal biometric dataset combining continuous fingerprint streams with
+                            synchronized PPG-derived heart rate data for authentication and liveness detection research.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">41,000+</span> Images</span>
+                            <span class="metric"><span class="metric-value">49</span> Subjects</span>
+                            <span class="metric"><span class="metric-value">500 ppi</span> Resolution</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>PPG</span>
+                            <span>Multi-modal</span>
+                            <span>Contactless</span>
+                        </div>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/11096628" target="_blank" class="project-link">
+                            Access Dataset →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card-featured">
+                    <img src="ppg_vital_signs_pipeline.png" alt="PPG Vital Signs Extraction Pipeline" />
+                    <div class="project-content">
+                        <h3>Vital Signs from Contactless Fingerprints</h3>
+                        <p class="project-meta">Asilomar Conference, 2024</p>
+                        <p>
+                            Novel approach to extract heart rate and authenticate users from low-frame-rate
+                            monochrome fingerprint captures. Enables liveness detection to prevent biometric spoofing.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">11.6%</span> HR Error</span>
+                            <span class="metric"><span class="metric-value">14 fps</span> Low Frame Rate</span>
+                            <span class="metric"><span class="metric-value">3000 ppi</span> Resolution</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>PPG</span>
+                            <span>CNN</span>
+                            <span>LSTM</span>
+                        </div>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10942696" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card-featured">
+                    <img src="ocularage_samples.png" alt="OcularAge NIR Eye Image Samples" />
+                    <div class="project-content">
+                        <h3>OcularAge: Pediatric Age Estimation</h3>
+                        <p class="project-meta">IEEE Access, 2025</p>
+                        <p>
+                            Comprehensive benchmark of 10 deep learning models for estimating children's age
+                            from ocular images. Deployed on Oculus Quest 2 VR headset with real-time inference.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">96.6%</span> Accuracy</span>
+                            <span class="metric"><span class="metric-value">21K+</span> Images</span>
+                            <span class="metric"><span class="metric-value">6ms</span> VR Inference</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>PyTorch</span>
+                            <span>TFLite</span>
+                            <span>Unity</span>
+                            <span>Oculus Quest 2</span>
+                        </div>
+                        <a href="https://ieeexplore.ieee.org/document/11096571" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card-featured">
+                    <img src="cuviris_app_interface.png" alt="CUVIRIS Android App Interface" />
+                    <div class="project-content">
+                        <h3>Smartphone Visible-Light Iris Recognition</h3>
+                        <p class="project-meta">IET Biometrics -- Under review</p>
+                        <p>
+                            Developed IrisQualityCapture Android app enabling ISO/IEC-compliant iris recognition
+                            on commodity smartphones. Created CUVIRIS dataset and benchmarked transformer-based matching.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">0.05%</span> EER</span>
+                            <span class="metric"><span class="metric-value">752</span> Images</span>
+                            <span class="metric"><span class="metric-value">97%</span> TAR@0.01FAR</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>Android</span>
+                            <span>MediaPipe</span>
+                            <span>PyTorch</span>
+                            <span>IrisFormer</span>
+                        </div>
+                        <a href="https://arxiv.org/abs/2412.13063" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card-featured">
+                    <img src="pediatric_iris_longitudinal.png" alt="Pediatric Iris Recognition Longitudinal Study" />
+                    <div class="project-content">
+                        <h3>Nine Years of Pediatric Iris Recognition</h3>
+                        <p class="project-meta">IEEE TIFS -- Under Review</p>
+                        <p>
+                            Most comprehensive longitudinal pediatric iris study to date. Tracked 276 children
+                            for 9 years through adolescence, proving biometric permanence with FNMR below 0.5%.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric"><span class="metric-value">276</span> Subjects</span>
+                            <span class="metric"><span class="metric-value">9 yrs</span> Follow-up</span>
+                            <span class="metric"><span class="metric-value"><0.5%</span> FNMR</span>
+                        </div>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>VeriEye</span>
+                            <span>OpenIris</span>
+                            <span>Mixed-Effects Models</span>
+                        </div>
+                        <a href="https://arxiv.org/abs/2303.12720" target="_blank" class="project-link">
+                            Read Paper →
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+                    </svg>
+                    View All Publications
+                </a>
             </div>
         </div>
     </section>
@@ -1121,243 +1422,55 @@
                     </a>
                 </div>
                 <div class="project-card">
-                    <div class="project-icon">📊</div>
-                    <h3>CUVIRIS Dataset</h3>
+                    <div class="project-icon">👁️</div>
+                    <h3>LightIrisNet</h3>
                     <p>
-                        Visible-spectrum ocular biometric dataset with 100+ subjects, designed for 
-                        research in mobile iris recognition and cross-spectral matching.
+                        Lightweight framework for iris and pupil segmentation in visible-light images
+                        using DeepLabv3+ with MobileNetV3 backbone for mobile-first deployment.
                     </p>
                     <div class="project-tech">
-                        <span>Dataset</span>
-                        <span>Biometrics</span>
-                        <span>Research</span>
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>MobileNetV3</span>
+                        <span>DeepLabv3+</span>
                     </div>
-                    <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="project-link">
-                        Learn More →
+                    <a href="https://github.com/naveengv7/LightIrisNet" target="_blank" class="project-link">
+                        View on GitHub →
                     </a>
                 </div>
                 <div class="project-card">
-                    <div class="project-icon">⚡</div>
-                    <h3>Mobile Segmentation Networks</h3>
+                    <div class="project-icon">👶</div>
+                    <h3>Child Eye Age Estimation</h3>
                     <p>
-                        Lightweight MobileNet-based segmentation networks achieving 9× inference 
-                        speedup on mobile devices while maintaining 95%+ IoU/Dice accuracy.
+                        Inference system for estimating children's ages using ocular biometrics with
+                        10 CNN and Transformer models including ResNet, EfficientNet, ViT, and MobileViT.
                     </p>
                     <div class="project-tech">
-                        <span>TensorFlow</span>
-                        <span>MobileNet</span>
-                        <span>Edge AI</span>
-                        <span>Android</span>
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>TFLite</span>
+                        <span>Vision Transformers</span>
                     </div>
-                    <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="project-link">
-                        View Research →
+                    <a href="https://github.com/naveengv7/child_eye_age_estimation" target="_blank" class="project-link">
+                        View on GitHub →
                     </a>
                 </div>
-            </div>
-
-            <!-- Featured Projects with Images -->
-            <h3 style="text-align: center; margin: 60px 0 32px; color: var(--text-secondary); font-size: 1.1rem;">Research Publications</h3>
-            <div class="projects-grid">
-                <div class="project-card-featured">
-                    <img src="inner_speech_protocol.png" alt="Inner Speech BCI Experiment Protocol" />
-                    <div class="project-content">
-                        <h3>Inner Speech BCI Classification</h3>
-                        <p class="project-meta">IEEE World AI IoT Congress (AIIoT), 2023</p>
-                        <p>
-                            Machine learning framework for decoding inner speech from 128-channel EEG signals 
-                            to enable thought-controlled assistive devices for patients with locked-in syndrome.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric"><span class="metric-value">35.3%</span> Accuracy</span>
-                            <span class="metric"><span class="metric-value">4-class</span> Classification</span>
-                            <span class="metric"><span class="metric-value">5600</span> Trials</span>
-                        </div>
-                        <div class="project-tech">
-                            <span>MATLAB</span>
-                            <span>EEGLAB</span>
-                            <span>SVM</span>
-                            <span>ANOVA</span>
-                        </div>
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10174580" target="_blank" class="project-link">
-                            Read Paper →
-                        </a>
+                <div class="project-card">
+                    <div class="project-icon">🚁</div>
+                    <h3>Seeker Drone</h3>
+                    <p>
+                        Autonomous drone detection and control system using YOLOv7 for real-time
+                        object detection integrated with DJI Tello drone SDK.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>YOLOv7</span>
+                        <span>DJI Tello</span>
+                        <span>Computer Vision</span>
                     </div>
-                </div>
-                <div class="project-card-featured">
-                    <img src="seizure_detection_pipeline.png" alt="Epileptic Seizure Detection ML Pipeline" />
-                    <div class="project-content">
-                        <h3>Epileptic Seizure Detection</h3>
-                        <p class="project-meta">IEEE ICECET, 2023</p>
-                        <p>
-                            Lightweight ML model for real-time seizure event classification from EEG signals, 
-                            designed for mobile/embedded deployment where deep learning is too computationally expensive.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric"><span class="metric-value">91.17%</span> Accuracy</span>
-                            <span class="metric"><span class="metric-value">91.97%</span> Precision</span>
-                            <span class="metric"><span class="metric-value">969hrs</span> EEG Data</span>
-                        </div>
-                        <div class="project-tech">
-                            <span>MATLAB</span>
-                            <span>Decision Tree</span>
-                            <span>SVM</span>
-                            <span>10-fold CV</span>
-                        </div>
-                        <a href="https://ieeexplore.ieee.org/document/10284324" target="_blank" class="project-link">
-                            Read Paper →
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card-featured">
-                    <img src="eeg_biometric_setup.png" alt="EEG Biometric Authentication Setup" />
-                    <div class="project-content">
-                        <h3>EEG-Based Biometric Authentication</h3>
-                        <p class="project-meta">IEEE ICECET, 2023 • First Author</p>
-                        <p>
-                            Spoof-resistant person identification using brain signals. Unlike fingerprints or iris, 
-                            EEG patterns are impossible to replicate and provide inherent liveness detection.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric"><span class="metric-value">92.9%</span> Accuracy</span>
-                            <span class="metric"><span class="metric-value">12-class</span> Classification</span>
-                            <span class="metric"><span class="metric-value">27</span> PCA Components</span>
-                        </div>
-                        <div class="project-tech">
-                            <span>MATLAB</span>
-                            <span>EEGLAB</span>
-                            <span>SVM</span>
-                            <span>PCA</span>
-                            <span>OpenBCI</span>
-                        </div>
-                        <a href="https://arxiv.org/abs/2411.17446" target="_blank" class="project-link">
-                            Read Paper →
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card-featured">
-                    <img src="fingerprint_heartrate_setup.png" alt="Contactless Fingerprint and Heart Rate Data Collection Setup" />
-                    <div class="project-content">
-                        <h3>Contactless Fingerprint & Heart Rate Dataset</h3>
-                        <p class="project-meta">IEEE Data Descriptions, 2024 • First Author</p>
-                        <p>
-                            Public multi-modal biometric dataset combining continuous fingerprint streams with 
-                            synchronized PPG-derived heart rate data for authentication and liveness detection research.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric"><span class="metric-value">41,000+</span> Images</span>
-                            <span class="metric"><span class="metric-value">49</span> Subjects</span>
-                            <span class="metric"><span class="metric-value">500 ppi</span> Resolution</span>
-                        </div>
-                        <div class="project-tech">
-                            <span>MATLAB</span>
-                            <span>PPG</span>
-                            <span>Multi-modal</span>
-                            <span>Contactless</span>
-                        </div>
-                        <a href="https://ieeexplore.ieee.org/abstract/document/11096628" target="_blank" class="project-link">
-                            Access Dataset →
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card-featured">
-                    <img src="ppg_vital_signs_pipeline.png" alt="PPG Vital Signs Extraction Pipeline" />
-                    <div class="project-content">
-                        <h3>Vital Signs from Contactless Fingerprints</h3>
-                        <p class="project-meta">Asilomar Conference, 2024</p>
-                        <p>
-                            Novel approach to extract heart rate and authenticate users from low-frame-rate 
-                            monochrome fingerprint captures. Enables liveness detection to prevent biometric spoofing.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric"><span class="metric-value">11.6%</span> HR Error</span>
-                            <span class="metric"><span class="metric-value">14 fps</span> Low Frame Rate</span>
-                            <span class="metric"><span class="metric-value">3000 ppi</span> Resolution</span>
-                        </div>
-                        <div class="project-tech">
-                            <span>MATLAB</span>
-                            <span>PPG</span>
-                            <span>CNN</span>
-                            <span>LSTM</span>
-                        </div>
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10942696" target="_blank" class="project-link">
-                            Read Paper →
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card-featured">
-                    <img src="ocularage_samples.png" alt="OcularAge NIR Eye Image Samples" />
-                    <div class="project-content">
-                        <h3>OcularAge: Pediatric Age Estimation</h3>
-                        <p class="project-meta">IEEE Access, 2025 • First Author</p>
-                        <p>
-                            Comprehensive benchmark of 10 deep learning models for estimating children's age 
-                            from ocular images. Deployed on Oculus Quest 2 VR headset with real-time inference.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric"><span class="metric-value">96.6%</span> Accuracy</span>
-                            <span class="metric"><span class="metric-value">21K+</span> Images</span>
-                            <span class="metric"><span class="metric-value">6ms</span> VR Inference</span>
-                        </div>
-                        <div class="project-tech">
-                            <span>PyTorch</span>
-                            <span>TFLite</span>
-                            <span>Unity</span>
-                            <span>Oculus Quest 2</span>
-                        </div>
-                        <a href="https://ieeexplore.ieee.org/document/11096571" target="_blank" class="project-link">
-                            Read Paper →
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card-featured">
-                    <img src="cuviris_app_interface.PNG" alt="CUVIRIS Android App Interface" />
-                    <div class="project-content">
-                        <h3>Smartphone Visible-Light Iris Recognition</h3>
-                        <p class="project-meta">IEEE Conference, 2024 • First Author</p>
-                        <p>
-                            Developed IrisQualityCapture Android app enabling ISO/IEC-compliant iris recognition 
-                            on commodity smartphones. Created CUVIRIS dataset and benchmarked transformer-based matching.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric"><span class="metric-value">0.05%</span> EER</span>
-                            <span class="metric"><span class="metric-value">752</span> Images</span>
-                            <span class="metric"><span class="metric-value">97%</span> TAR@0.01FAR</span>
-                        </div>
-                        <div class="project-tech">
-                            <span>Android</span>
-                            <span>MediaPipe</span>
-                            <span>PyTorch</span>
-                            <span>IrisFormer</span>
-                        </div>
-                        <a href="https://arxiv.org/abs/2412.13063" target="_blank" class="project-link">
-                            Read Paper →
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card-featured">
-                    <img src="pediatric_iris_longitudinal.png" alt="Pediatric Iris Recognition Longitudinal Study" />
-                    <div class="project-content">
-                        <h3>Nine Years of Pediatric Iris Recognition</h3>
-                        <p class="project-meta">IEEE TIFS, 2025 • First Author</p>
-                        <p>
-                            Most comprehensive longitudinal pediatric iris study to date. Tracked 276 children 
-                            for 9 years through adolescence, proving biometric permanence with FNMR below 0.5%.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric"><span class="metric-value">276</span> Subjects</span>
-                            <span class="metric"><span class="metric-value">9 yrs</span> Follow-up</span>
-                            <span class="metric"><span class="metric-value"><0.5%</span> FNMR</span>
-                        </div>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>VeriEye</span>
-                            <span>OpenIris</span>
-                            <span>Mixed-Effects Models</span>
-                        </div>
-                        <a href="https://arxiv.org/abs/2303.12720" target="_blank" class="project-link">
-                            Read Paper →
-                        </a>
-                    </div>
+                    <a href="https://github.com/naveengv7/seeker_drone" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
                 </div>
             </div>
         </div>
@@ -1417,7 +1530,6 @@
         </div>
     </section>
 
-    
     <!-- Experience Section -->
     <section class="experience" id="experience">
         <div class="container">
@@ -1489,16 +1601,36 @@
             </div>
             <div class="contact-content">
                 <p>
-                    I'm actively exploring opportunities in Research Science, Applied ML, and AI Engineering. 
+                    I'm actively exploring opportunities in Research Science, Applied ML, and AI Engineering.
                     Feel free to reach out for collaborations or opportunities!
                 </p>
+
+                <!-- Contact Form -->
+                <form class="contact-form" action="https://formspree.io/f/mpwvepvr" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+
+                <div class="form-divider"><span>or connect directly</span></div>
+
                 <div class="contact-links">
-                    <a href="/cdn-cgi/l/email-protection#620c031407070c0514555622050f030b0e4c010d0f" class="contact-btn">
+                    <a href="mailto:naveengv74@gmail.com" class="contact-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        <span class="__cf_email__" data-cfemail="0967687f6c6c676e7f3e3d496e64686065276a6664">[email&#160;protected]</span>
+                        naveengv74@gmail.com
                     </a>
                     <a href="https://linkedin.com/in/naveengv" target="_blank" class="contact-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -1527,7 +1659,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
