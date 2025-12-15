@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Naveenkumar Venkataswamy | AI Researcher & Computer Vision Engineer</title>
+    <meta name="description" content="Postdoctoral Researcher specializing in Trustworthy AI, Computer Vision, and Biometric Systems. Open to Research Scientist and ML Engineering opportunities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-glow: rgba(99, 102, 241, 0.3);
+            --success: #10b981;
+            --border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --gradient-2: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 0;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .hero h1 .gradient {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 48px;
+            animation: fadeInUp 0.6s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .hero-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .hero-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .project-tech span {
+            padding: 6px 12px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+
+        .project-link:hover {
+            gap: 12px;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 span {
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        /* Publications Section */
+        .publications-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .publication-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            border-color: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .publication-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .publication-venue {
+            color: var(--accent-light);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .publication-status {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--bg-secondary);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            padding-left: 40px;
+            padding-bottom: 48px;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--bg-secondary), 0 0 20px var(--accent-glow);
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .award-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .award-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .award-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .award-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-4px);
+            color: var(--text-primary);
+        }
+
+        .contact-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .contact-info {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">NV</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Open to opportunities
+                </div>
+                <h1>
+                    Hi, I'm <span class="gradient">Naveen</span>
+                </h1>
+                <p class="hero-title">Postdoctoral Researcher • AI & Computer Vision</p>
+                <p class="hero-description">
+                    I build AI systems that are not just accurate, but also efficient, interpretable, and fair. 
+                    Bridging the gap between laboratory AI and real-world deployment at Clarkson University.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Get in Touch
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                        </svg>
+                        View Publications
+                    </a>
+                </div>
+                <div class="hero-links">
+                    <a href="https://github.com/naveengv7" target="_blank" title="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/naveengv" target="_blank" title="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" title="Google Scholar">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:naveengv74@gmail.com" title="Email">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title">Turning Research into Reality</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p>
+                        I'm a <strong>Postdoctoral Researcher at Clarkson University</strong> specializing in 
+                        trustworthy and deployable AI systems. My work focuses on biometric recognition, 
+                        explainable machine learning, and mobile/embedded computer vision.
+                    </p>
+                    <p>
+                        My research addresses the critical gap between laboratory AI and real-world deployment 
+                        by developing systems that are accurate, efficient, interpretable, and fair across 
+                        demographic groups. Current focus areas include presentation attack detection for 
+                        mobile authentication, LLM-driven model interpretability, and longitudinal biometric 
+                        stability in pediatric populations.
+                    </p>
+                    <p>
+                        My work has been adopted by leading organizations including <strong>Tools for Humanity</strong>, 
+                        <strong>Neurotechnology</strong>, <strong>IDEMIA</strong>, and <strong>Mastercard Community Pass</strong>.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$200K+</div>
+                        <div class="stat-label">Research Funding</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">350+</div>
+                        <div class="stat-label">Study Participants</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">9×</div>
+                        <div class="stat-label">Model Speedup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Featured Projects</span>
+                <h2 class="section-title">Research & Open Source</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">📱</div>
+                    <h3>IrisQualityCapture</h3>
+                    <p>
+                        Production-ready Android app for research-grade biometric iris image collection 
+                        with real-time quality assessment using ISO/IEC 29794-6 standards.
+                    </p>
+                    <div class="project-tech">
+                        <span>C++</span>
+                        <span>Java</span>
+                        <span>OpenCV</span>
+                        <span>MediaPipe</span>
+                        <span>Camera2</span>
+                    </div>
+                    <a href="https://github.com/naveengv7/IrisQualityCapture" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🧠</div>
+                    <h3>VIS-IrisFormer</h3>
+                    <p>
+                        Transformer architecture for visible spectrum iris recognition achieving 
+                        state-of-the-art performance on UBIRIS, MICHE, and CUVIRIS benchmarks.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>Transformers</span>
+                        <span>Deep Learning</span>
+                    </div>
+                    <a href="https://github.com/naveengv7/VIS-IrisFormer" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">📊</div>
+                    <h3>CUVIRIS Dataset</h3>
+                    <p>
+                        Visible-spectrum ocular biometric dataset with 100+ subjects, designed for 
+                        research in mobile iris recognition and cross-spectral matching.
+                    </p>
+                    <div class="project-tech">
+                        <span>Dataset</span>
+                        <span>Biometrics</span>
+                        <span>Research</span>
+                    </div>
+                    <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="project-link">
+                        Learn More →
+                    </a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">⚡</div>
+                    <h3>Mobile Segmentation Networks</h3>
+                    <p>
+                        Lightweight MobileNet-based segmentation networks achieving 9× inference 
+                        speedup on mobile devices while maintaining 95%+ IoU/Dice accuracy.
+                    </p>
+                    <div class="project-tech">
+                        <span>TensorFlow</span>
+                        <span>MobileNet</span>
+                        <span>Edge AI</span>
+                        <span>Android</span>
+                    </div>
+                    <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="project-link">
+                        View Research →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Technical Skills</span>
+                <h2 class="section-title">Tools & Technologies</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><span>💻</span> Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span>🤖</span> ML/DL Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">MediaPipe</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span>☁️</span> Platforms & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Android</span>
+                        <span class="skill-tag">NVIDIA Jetson</span>
+                        <span class="skill-tag">FPGA</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span>🎯</span> Specializations</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Mobile AI Deployment</span>
+                        <span class="skill-tag">Explainable AI</span>
+                        <span class="skill-tag">Biometric Systems</span>
+                        <span class="skill-tag">Vision Transformers</span>
+                        <span class="skill-tag">ISO/IEC Compliance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications" id="publications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Research</span>
+                <h2 class="section-title">Selected Publications</h2>
+            </div>
+            <div class="publications-list">
+                <div class="publication-item">
+                    <h4>Longitudinal Stability of Iris Recognition in Children: A 9-Year Study</h4>
+                    <p class="publication-venue">IEEE Trans. Biometrics, Behavior, and Identity Science, 2025</p>
+                    <span class="publication-status">Under Review</span>
+                </div>
+                <div class="publication-item">
+                    <h4>Smartphone-based Iris Recognition through High-Quality Visible Spectrum Iris Capture</h4>
+                    <p class="publication-venue">arXiv preprint arXiv:2412.13063, 2024</p>
+                    <a href="https://arxiv.org/abs/2412.13063" target="_blank" class="project-link" style="font-size: 0.9rem;">Read Paper →</a>
+                </div>
+                <div class="publication-item">
+                    <h4>OcularAge: A Comparative Study of Iris and Periocular Images for Pediatric Age Estimation</h4>
+                    <p class="publication-venue">IEEE Access, 2025</p>
+                    <span class="publication-status">Published</span>
+                </div>
+                <div class="publication-item">
+                    <h4>An Open-Source Framework for Quality-Assured Smartphone-Based Visible-Light Iris Recognition</h4>
+                    <p class="publication-venue">IET Biometrics, 2025</p>
+                    <span class="publication-status">Under Review</span>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://scholar.google.com/citations?user=2zZYu9YAAAAJ" target="_blank" class="btn btn-secondary">
+                    View All Publications on Google Scholar →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Experience</span>
+                <h2 class="section-title">Career Timeline</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2025 – Present</div>
+                    <h4>Postdoctoral Researcher</h4>
+                    <p class="timeline-company">Clarkson University, NY</p>
+                    <p>Developing CNN-based presentation attack detection for government deployment. Building LLM-driven interpretability frameworks and leading multi-institution collaboration on trustworthy ML.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2022 – Aug 2025</div>
+                    <h4>Ph.D. Researcher</h4>
+                    <p class="timeline-company">Clarkson University, NY</p>
+                    <p>Led 9-year longitudinal biometric study with 350+ participants. Developed lightweight segmentation networks with 9× speedup. Created CUVIRIS and CFISHR datasets.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2017 – 2021</div>
+                    <h4>Senior Software Engineer</h4>
+                    <p class="timeline-company">Attra (Synechron), Bengaluru, India</p>
+                    <p>Built ML-based anomaly detection processing 500K+ transactions/day with 77% fraud detection accuracy. Led 5-member team with CI/CD pipelines maintaining 99.9% uptime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards" id="awards">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Recognition</span>
+                <h2 class="section-title">Awards & Honors</h2>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">🏆</div>
+                    <h4>CITeR Best Poster Award</h4>
+                    <p>2023, 2024, 2025</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">🥇</div>
+                    <h4>Best Commercializable Solution</h4>
+                    <p>Clarkson University, 2024</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">🚀</div>
+                    <h4>Ignite President's Challenge Winner</h4>
+                    <p>2023, 2024</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">💡</div>
+                    <h4>Smart Throne Innovation Award</h4>
+                    <p>Clarkson University, 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Let's Connect</h2>
+            </div>
+            <div class="contact-content">
+                <p>
+                    I'm actively exploring opportunities in Research Science, Applied ML, and AI Engineering. 
+                    Feel free to reach out for collaborations or opportunities!
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:naveengv74@gmail.com" class="contact-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        naveengv74@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/naveengv" target="_blank" class="contact-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/naveengv7" target="_blank" class="contact-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+                <p class="contact-info">
+                    📍 Potsdam, NY, USA &nbsp;|&nbsp; 📞 +1 (315) 621-0737
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Naveenkumar Venkataswamy. Built with ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when link clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .skill-category, .publication-item, .timeline-item, .award-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
